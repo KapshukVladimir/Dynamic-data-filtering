@@ -1,5 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
-
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { SearchFilterComponent } from './search-filter.component';
 import { NgOnDestroy } from "../../services/ng-on-destroy.service";
 import { ReactiveFormsModule } from "@angular/forms";
