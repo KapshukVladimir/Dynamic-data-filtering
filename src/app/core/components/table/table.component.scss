@@ -1,0 +1,27 @@
+.mat-mdc-card-content {
+  max-height: 576px;
+  overflow: auto;
+}
+
+.table-wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.table {
+  overflow: scroll;
+}
+
+.table-toolbox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &-right {
+    display: flex;
+  }
+}
+
+.toolbar-item {
+  margin-right: 20px;
+}

@@ -1,0 +1,31 @@
+.range-filter {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin-right: 16px;
+    font-size: 20px;
+  }
+
+  &-data {
+    position: relative;
+  }
+
+  &__range-from {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    left: 3px;
+  }
+
+  &__range-to {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    right: 3px;
+  }
+}
+
+

@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-label>Choose category</mat-label>
+  <mat-select (valueChange)="onChangeCategory($event)">
+    <mat-option *ngFor="let cat of categories"
+                [value]="cat.title"
+    >{{cat.title}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
