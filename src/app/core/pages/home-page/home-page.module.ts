@@ -1,18 +1,27 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {TableModule} from "../../components/table/table.module";
-import {HomePageComponent} from "./home-page.component";
-import { MatSidenavModule } from "@angular/material/sidenav";
+import { NgModule } from '@angular/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { TableModule } from '../../components/table/table.module';
 
+import { HomePageComponent } from './home-page.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomePageComponent,
+  },
+];
 
 @NgModule({
   declarations: [HomePageComponent],
   imports: [
     CommonModule,
     TableModule,
-    MatSidenavModule
+    MatSidenavModule,
+    RouterModule.forChild(routes),
   ],
-  exports: [HomePageComponent]
+  exports: [HomePageComponent],
 })
-export class HomePageModule { }
+export class HomePageModule {}

@@ -1,5 +1,5 @@
-export enum ETableColumnType  {
+export enum ETableColumnType {
   NAME = 'name',
   CATEGORY = 'category',
-  PRICE = 'price'
+  PRICE = 'price',
 }

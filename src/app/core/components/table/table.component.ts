@@ -4,31 +4,37 @@ import {
   Component,
   Input,
   OnInit,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
-import { ITableItem } from "../../interfaces/table-data.interface";
-import { MatTableDataSource } from "@angular/material/table";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
-import { NgOnDestroy } from "../../services/ng-on-destroy.service";
-import { DEFAULT_PAGE_SIZE_OPTIONS } from "../../shared/constnats/default-values";
-import { ETableColumnType } from "../../enums/table-column.enum";
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
+import { ETableColumnType } from '../../enums/table-column.enum';
+import { ITableItem } from '../../interfaces/table-data.interface';
+import { NgOnDestroy } from '../../services/ng-on-destroy.service';
+import { DEFAULT_PAGE_SIZE_OPTIONS } from '../../shared/constants/default-values';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [NgOnDestroy]
+  providers: [NgOnDestroy],
 })
 export class TableComponent implements OnInit, AfterViewInit {
   @Input() tableData: ITableItem[] = [];
-  @ViewChild(MatPaginator) paginator!: MatPaginator
-  @ViewChild(MatSort) sort!: MatSort
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  public tableColumnType = ETableColumnType
+  public tableColumnType = ETableColumnType;
   public currentCategory = '';
-  public displayedColumns: string[] = [ETableColumnType.NAME, ETableColumnType.CATEGORY, ETableColumnType.PRICE];
+  public displayedColumns: string[] = [
+    ETableColumnType.NAME,
+    ETableColumnType.CATEGORY,
+    ETableColumnType.PRICE,
+  ];
+
   public dataSource!: MatTableDataSource<ITableItem>;
   public readonly DEFAULT_PAGE_SIZE_OPTIONS = DEFAULT_PAGE_SIZE_OPTIONS;
 
@@ -37,7 +43,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
@@ -47,16 +53,20 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   public onStartValueChanged(startValue: number): void {
     this.dataSource.data = this.tableData;
-    this.dataSource.data = this.dataSource.data.filter((tableItem: ITableItem) => tableItem.price > startValue)
+    this.dataSource.data = this.dataSource.data.filter(
+      (tableItem: ITableItem) => tableItem.price > startValue
+    );
   }
 
   public onEndValueChanged(endValue: number): void {
     this.dataSource.data = this.tableData;
-    this.dataSource.data = this.dataSource.data.filter((tableItem: ITableItem) => tableItem.price < endValue)
+    this.dataSource.data = this.dataSource.data.filter(
+      (tableItem: ITableItem) => tableItem.price < endValue
+    );
   }
 
   public onChangedCategory(changedCategory: string): void {
-    this.currentCategory = changedCategory
+    this.currentCategory = changedCategory;
     this.dataSource.filter = changedCategory;
   }
 }

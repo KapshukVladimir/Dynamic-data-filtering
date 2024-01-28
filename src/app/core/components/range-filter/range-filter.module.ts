@@ -1,16 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RangeFilterComponent } from "./range-filter.component";
-import { MatSliderModule } from "@angular/material/slider";
-import { ReactiveFormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+
+import { RangeFilterComponent } from './range-filter.component';
 
 @NgModule({
   declarations: [RangeFilterComponent],
-  imports: [
-    CommonModule,
-    MatSliderModule,
-    ReactiveFormsModule
-  ],
-  exports: [RangeFilterComponent]
+  imports: [CommonModule, MatSliderModule, ReactiveFormsModule],
+  exports: [RangeFilterComponent],
 })
-export class RangeFilterModule { }
+export class RangeFilterModule {}

@@ -1,29 +1,35 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgOnDestroy } from '../../services/ng-on-destroy.service';
+import { DEFAULT_DEBOUNCE_TIME } from '../../shared/constants/default-values';
+
 import { SearchFilterComponent } from './search-filter.component';
-import { NgOnDestroy } from "../../services/ng-on-destroy.service";
-import { ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatInputModule } from "@angular/material/input";
-import { DEFAULT_DEBOUNCE_TIME } from "../../shared/constnats/default-values";
 
 describe('SearchFilterComponent', () => {
   let component: SearchFilterComponent;
   let fixture: ComponentFixture<SearchFilterComponent>;
 
-  beforeEach((() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SearchFilterComponent],
       imports: [
         ReactiveFormsModule,
         CommonModule,
         BrowserAnimationsModule,
-        MatInputModule
+        MatInputModule,
       ],
-      providers: [NgOnDestroy]
-    })
-      .compileComponents();
-  }));
+      providers: [NgOnDestroy],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchFilterComponent);

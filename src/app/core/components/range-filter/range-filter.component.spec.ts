@@ -1,9 +1,17 @@
-import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+  waitForAsync,
+} from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+
+import { DEFAULT_DEBOUNCE_TIME } from '../../shared/constants/default-values';
+
 import { RangeFilterComponent } from './range-filter.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { MatSliderModule } from "@angular/material/slider";
-import { DEFAULT_DEBOUNCE_TIME } from "../../shared/constnats/default-values";
 
 describe('RangeFilterComponent', () => {
   let component: RangeFilterComponent;
@@ -12,20 +20,14 @@ describe('RangeFilterComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [RangeFilterComponent],
-      imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        MatSliderModule
-      ],
-    })
-      .compileComponents();
+      imports: [CommonModule, ReactiveFormsModule, MatSliderModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RangeFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
   });
 
   it('should create', () => {

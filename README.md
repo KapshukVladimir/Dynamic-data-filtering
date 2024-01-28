@@ -14,6 +14,14 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Run eslint
+
+Run `npm run list` to check eslint errors. Run `npm run list:fix` to fix eslint errors
+
+## Run prettier
+
+Run `npm run prettier` to check eslint errors. Run `npm run prettier:fix` to fix prettier errors
+
 ## Note
 
 Do not forget that you should be in the root folder - dinamic-data-filtering

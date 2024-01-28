@@ -5,12 +5,13 @@ import {
   OnInit,
   Output,
   Self,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
-import { FormControl } from "@angular/forms";
-import { debounceTime, distinctUntilChanged, takeUntil } from "rxjs";
-import { NgOnDestroy } from "../../services/ng-on-destroy.service";
-import { DEFAULT_DEBOUNCE_TIME } from "../../shared/constnats/default-values";
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
+
+import { NgOnDestroy } from '../../services/ng-on-destroy.service';
+import { DEFAULT_DEBOUNCE_TIME } from '../../shared/constants/default-values';
 
 @Component({
   selector: 'app-search-filter',
@@ -18,16 +19,13 @@ import { DEFAULT_DEBOUNCE_TIME } from "../../shared/constnats/default-values";
   styleUrls: ['./search-filter.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [NgOnDestroy],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SearchFilterComponent implements OnInit {
   @Output() searchValue: EventEmitter<string> = new EventEmitter<string>();
   public filterControl: FormControl = new FormControl<string>('');
 
-  constructor(
-    @Self() private readonly ngOnDestroy$: NgOnDestroy
-  ) {
-  }
+  constructor(@Self() private readonly ngOnDestroy$: NgOnDestroy) {}
 
   public ngOnInit(): void {
     this.onChangeSearchWatch();

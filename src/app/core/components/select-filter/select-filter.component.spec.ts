@@ -1,17 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MOCK_CATEGORIES } from '../../shared/constants/mock-data';
+
 import { SelectFilterComponent } from './select-filter.component';
-import { CommonModule } from "@angular/common";
-import { MatInputModule } from "@angular/material/input";
-import { MatSelectModule } from "@angular/material/select";
-import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MOCK_CATEGORIES } from "../../shared/constnats/mock-data";
 
 describe('SelectFilterComponent', () => {
   let component: SelectFilterComponent;
   let fixture: ComponentFixture<SelectFilterComponent>;
 
-  beforeEach((() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SelectFilterComponent],
       imports: [
@@ -19,11 +21,10 @@ describe('SelectFilterComponent', () => {
         MatInputModule,
         MatSelectModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
       ],
-    })
-      .compileComponents();
-  }));
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SelectFilterComponent);
@@ -41,7 +42,9 @@ describe('SelectFilterComponent', () => {
     component.onChangeCategory(changedCategory);
     fixture.detectChanges();
 
-    expect(component.changedCategory.emit).toHaveBeenCalledWith(changedCategory);
+    expect(component.changedCategory.emit).toHaveBeenCalledWith(
+      changedCategory
+    );
   });
 
   it('should have categories populated', () => {

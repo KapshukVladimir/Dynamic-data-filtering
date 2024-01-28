@@ -4,18 +4,19 @@
   <div class="range-filter-data">
     <span class="range-filter__range-from">{{ displayStartValue }}</span>
 
-    <mat-slider [min]="DEFAULT_MIN_RANGE_VALUE"
-                [max]="DEFAULT_MAX_RANGE_VALUE"
-                color="primary">
-      <input [formControl]="rangeStartControl"
-             [value]="DEFAULT_MIN_RANGE_VALUE"
-             matSliderStartThumb>
-      <input [formControl]="rangeEndControl"
-             [value]="DEFAULT_MAX_RANGE_VALUE"
-             matSliderEndThumb>
+    <mat-slider
+      [min]="DEFAULT_MIN_RANGE_VALUE"
+      [max]="DEFAULT_MAX_RANGE_VALUE"
+      color="primary">
+      <input
+        [formControl]="rangeStartControl"
+        [value]="DEFAULT_MIN_RANGE_VALUE"
+        matSliderStartThumb />
+      <input
+        [formControl]="rangeEndControl"
+        [value]="DEFAULT_MAX_RANGE_VALUE"
+        matSliderEndThumb />
     </mat-slider>
     <span class="range-filter__range-to">{{ displayEndValue }}</span>
   </div>
 </div>
-
-
